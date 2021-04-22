@@ -20,22 +20,45 @@
         </div>
     </header>
     <main>
-        <div>
+        <div id="formulDiv">
             <form action="POST" id="formulario">
-                <table id="tabla">
-                    <tr>
-                        <th id="prove">Articulo</th>
-                        <th>Precios</th>
-                        <th>Tipo de empaque</th>
-                        <th>Cantidad</th>
-                    </tr>
-                    <script src="js/formValues.js">
-                    </script>
-                </table>
+                <fieldset id="User">
+                    <legend>Usuario</legend>
+                    <label for="nombreU">Nombre usuario solicitante</label>
+                    <input type="text" maxlength="30" name="nombreU" id="nombreU" required>
+                    <label for="areaE">Área a la que pertenece</label>
+                    <input type="text" maxlength="30" name="areaE" id="areaE" required>
+                    <button class="mostrarForm" onclick= "showForm()">mostrar formulario</button>
+                </fieldset>
+
+                <script>
+                    function showForm(){
+                        /*const nom = document.forms["formulario"]["User"]["nombreU"].value;
+                        const area = document.forms["formulario"]["User"]["areaE"].value;                    
+                        if((nom!="" && area!= "")||(nom!=undefined && area!= undefined)){*/
+                            document.getElementById("formData").style.display = "block";
+                            document.getElementById("footer").style.display = "block";
+                        
+                    }
+                </script>
+                <fieldset id="formData">
+                    <legend>Formulario de Solicitud</legend>
+                    <table id="tabla">
+                        <tr>
+                            <th id="prove">Articulo</th>
+                            <th>Precios</th>
+                            <th>Tipo de empaque</th>
+                            <th>Cantidad</th>
+                        </tr>
+                        <script src="js/formValues.js">
+                        </script>
+                        <button type="submit" class="enviar">Enviar</button>
+                    </table>
+                </fieldset>
             </form>
         </div>
     </main>
-    <footer>
+    <footer id="footer">
         <p>
             Todos los derechos reservados para ABC
         </p>

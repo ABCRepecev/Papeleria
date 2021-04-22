@@ -9,6 +9,7 @@ h1{
 }
 div>div{
     height: 100px;
+    background-color: #fde28b;
 }
 img{
     width: 100px;
@@ -22,8 +23,15 @@ img{
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
+    border-bottom-style: double;
+    border-bottom: black 3px solid;
 }
-table,th, td{
+th{
+    border-bottom: black 2px solid;
+    border-top: black 1px solid;
+}
+
+td{
     border-bottom: #071d49 solid 1px;
 }
 th{
@@ -44,9 +52,59 @@ footer>p{
     text-align: center;
     color: orange;
     padding-top: 10px;
+    position: relative;
 }
 footer{
     background-color: #071d49;
-    margin-top: 50px;
+    margin-top: 5px;
     height: 60px;
+    width: 100%;
+    bottom: 0%;
+    display: none;
+}
+
+#formulDiv{
+    padding-top: 20px;
+}
+div>p{
+    text-align: right;
+    padding-right: 20px;
+}
+#formData{
+    display: none;
+}
+#User>input{
+    display: block;
+    margin: 5px auto 25px;
+    height: 20px;
+    width: 300px;
+}
+
+#User>label{
+    margin: 0px auto;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+legend{
+    font-size: 23px;
+}
+#formulDiv{
+    margin-bottom: 90px;
+}
+.mostrarForm{
+    margin: 60px auto 30px;
+    background-color: #071d49;
+    color: white;
+    display: block;
+    height: 40px;
+}
+.enviar{
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    height: 40px;
+    width: 80px;
+    background-color: #071d49;
+    color: white;
 }
