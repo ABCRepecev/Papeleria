@@ -1,0 +1,52 @@
+*{
+    margin:0%;
+}
+h1{
+    color: #071d49;
+    padding-bottom: 10px;
+    text-align: center;
+    padding-top: 25px;
+}
+div>div{
+    height: 100px;
+}
+img{
+    width: 100px;
+    height: auto;
+    position: absolute;
+    margin-left: 40px;
+    margin-top: 15px;
+}
+
+#tabla{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+table,th, td{
+    border-bottom: #071d49 solid 1px;
+}
+th{
+    background-color: #fde28b;
+    height: 50px;
+    padding: 0 10px;
+}
+tr{
+    border-bottom: #071d49 1px solid;
+}
+p{
+    padding-left: 20px;
+}
+.precio, .tipo{
+    text-align: center;
+}
+footer>p{
+    text-align: center;
+    color: orange;
+    padding-top: 10px;
+}
+footer{
+    background-color: #071d49;
+    margin-top: 50px;
+    height: 60px;
+}
