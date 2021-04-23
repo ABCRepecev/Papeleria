@@ -20,11 +20,10 @@ img{
 }
 
 #tabla{
-    margin-left: auto;
-    margin-right: auto;
     border-collapse: collapse;
     border-bottom-style: double;
     border-bottom: black 3px solid;
+    margin: 40px auto 20px;
 }
 th{
     border-bottom: black 2px solid;
@@ -104,4 +103,8 @@ legend{
     width: 80px;
     background-color: #071d49;
     color: white;
+}
+fieldset{
+    margin: 0 20px 30px;
+    padding: 10px;
 }

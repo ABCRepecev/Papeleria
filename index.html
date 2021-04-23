@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Papeleria ABC</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            for(i=0;i<items.length;i++){
+
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -16,7 +24,10 @@
                 <img src="img/logo.png" alt="Logo">
                 <h1>SOLICITUD POR ÁREA DE PAPELERÍA EN ABC REPECEV</h1>
             </div>
+            <!--
             <p>presupuesto máximo mensual <span id="Budget">0</span></p>
+            -->
+            <p>Fecha: <span id="fecha">0</span></p>
         </div>
     </header>
     <main>
@@ -37,7 +48,6 @@
                         if((nom!="" && area!= "")||(nom!=undefined && area!= undefined)){*/
                             document.getElementById("formData").style.display = "block";
                             document.getElementById("footer").style.display = "block";
-                        
                     }
                 </script>
                 <fieldset id="formData">

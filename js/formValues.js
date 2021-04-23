@@ -120,12 +120,6 @@ let items = [
     new Item("ADHESIVO AMARILLO", 1, "UNIDAD"),
 ];
 
-/*<td><label for="item-1-cantidad">Acetato tamaño carta calibre 3</label></td>
-<td id="item-1-precio">5625</td>
-<td>PAQ x 25</td>
-<td><input type="number" name="item-1-cantidad" id="item-1-cantidad"></td>
-<td id="total-1"></td>*/
-
 let element = document.getElementById("tabla")
 let row, product, price, batch, quantity, total, labelProduct, inputQuantity;
 let textProduct, textPrice, textBatch;
@@ -164,5 +158,11 @@ for (i = 0; i<items.length; i++){
     price.setAttribute("class", "precio");
     batch.setAttribute("class", "tipo");
 }
+
+let dateObj= new Date();
+let mon = dateObj.getMonth()+1;
+let myDate = dateObj.getDate()+"/"+mon+"/"+dateObj.getFullYear();
+fecha = document.getElementById("fecha").innerHTML = myDate;
+
 
 
