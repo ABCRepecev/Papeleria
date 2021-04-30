@@ -11,7 +11,7 @@
     <script>
         $(function(){
             for(i=0;i<items.length;i++){
-
+                
             }
         });
     </script>
@@ -27,7 +27,7 @@
             <!--
             <p>presupuesto máximo mensual <span id="Budget">0</span></p>
             -->
-            <p>Fecha: <span id="fecha">0</span></p>
+            <p>Fecha: <span id="fecha"></span></p>
         </div>
     </header>
     <main>
@@ -39,6 +39,16 @@
                     <input type="text" maxlength="30" name="nombreU" id="nombreU" required>
                     <label for="areaE">Área a la que pertenece</label>
                     <input type="text" maxlength="30" name="areaE" id="areaE" required>
+                    <label for="sucursal">Sucursal</label>
+                    <select name="sucursal" id="sucursal" required>
+                        <option value="Bogotá" selected="selected">Bogotá</option>
+                        <option value="Barranquilla">Barranquilla</option>
+                        <option value="Santa Marta">Santa Marta</option>
+                        <option value="Cartagena">Cartagena</option>
+                        <option value="Buenaventura">Buenaventura</option>
+                        <option value="Cali">Cali</option>
+                        <option value="Ipiales">Ipiales</option>
+                    </select>
                 </fieldset>
 
                 <script>
