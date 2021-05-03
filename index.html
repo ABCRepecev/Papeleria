@@ -7,14 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Papeleria ABC</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(function(){
-            for(i=0;i<items.length;i++){
-                
-            }
-        });
-    </script>
 </head>
 
 <body>
@@ -24,15 +19,12 @@
                 <img src="img/logo.png" alt="Logo">
                 <h1>SOLICITUD POR ÁREA DE PAPELERÍA EN ABC REPECEV</h1>
             </div>
-            <!--
-            <p>presupuesto máximo mensual <span id="Budget">0</span></p>
-            -->
-            <p>Fecha: <span id="fecha"></span></p>
         </div>
+        <p id="fecha"></p>
     </header>
     <main>
         <div id="formulDiv">
-            <form action="POST" id="formulario">
+            <form action="https://abcrepecev.com" id="formulario" method="POST">
                 <fieldset id="User">
                     <legend>Usuario</legend>
                     <label for="nombreU">Nombre usuario solicitante</label>
@@ -49,17 +41,15 @@
                         <option value="Cali">Cali</option>
                         <option value="Ipiales">Ipiales</option>
                     </select>
+                    <label for="Empresa">Empresa</label>
+                    <select name="Empresa" id="Empresa" requiered>
+                        <option value="ABC Repecev">ABC Repecev</option>
+                        <option value="ABC Cargo Logistic">ABC Cargo Logistic</option>
+                        <option value="ABC Cargo Express">ABC Cargo Express</option>
+                        <option value="ABC Storage">ABC Storage</option>
+                        <option value="ABC SIC Logistic">ABC SIC Logistic</option>
+                    </select>
                 </fieldset>
-
-                <script>
-                    function showForm(){
-                        /*const nom = document.forms["formulario"]["User"]["nombreU"].value;
-                        const area = document.forms["formulario"]["User"]["areaE"].value;                    
-                        if((nom!="" && area!= "")||(nom!=undefined && area!= undefined)){*/
-                            document.getElementById("formData").style.display = "block";
-                            document.getElementById("footer").style.display = "block";
-                    }
-                </script>
                 <fieldset id="formData">
                     <legend>Formulario de Solicitud</legend>
                     <table id="tabla">
@@ -71,8 +61,37 @@
                         </tr>
                         <script src="js/formValues.js">
                         </script>
-                        <button type="submit" class="enviar">Enviar</button>
+                        <button type="reset" class="enviar" id="enviar">Enviar</button>
                     </table>
+                    <script>
+                        var rowCount = $('#tabla tr').length;
+                        $(function () {
+                            $("#enviar").click(function () {
+                                for (i = 0; i < rowCount-1; i++) {
+                                    if ($("#input-"+i).val()!="") {
+                                        let total = parseInt($("#precio-" + i)[0].childNodes[0].nodeValue)*parseInt($("#input-"+i).val());
+                                        let formData = {
+                                            Articulo: $("#item-" + i)[0].childNodes[0].nodeValue,
+                                            Precio: parseInt($("#precio-" + i)[0].childNodes[0].nodeValue), 
+                                            TipoDeEmpaque: $("#tipo-" + i)[0].childNodes[0].nodeValue,
+                                            CantidadPedido: parseInt($("#input-"+i).val()),
+                                            Total: total, 
+                                            UsuarioSolicitante: $("#nombreU").val(),
+                                            AreaSolicitante: $("#areaE").val(),
+                                            sucursal: $("#sucursal").val(), 
+                                            Empresa: $("#Empresa").val(),
+                                        }
+                                    $.ajax({
+                                        contentType: 'application/json',
+                                        type: "POST",
+                                        url: "https://prod-61.westus.logic.azure.com:443/workflows/09a0d7c340bf4ca880fad49b94efb3c7/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=okc_L4zAB8ypmJqw9bA-SVvKx8wpZh7vBo1X9QUrLXI",
+                                        data: JSON.stringify(formData),
+                
+                                    })};
+                                }
+                            });
+                        });
+                    </script>
                 </fieldset>
             </form>
         </div>

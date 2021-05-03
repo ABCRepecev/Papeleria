@@ -1,5 +1,5 @@
 
-function Item (articulo, precio, tipoEmpaque, cantidad) {
+function Item (articulo, precio, tipoEmpaque) {
     this.articulo = articulo;
     this.precio = precio;
     this.tipoEmpaque = tipoEmpaque;
@@ -127,7 +127,7 @@ let textProduct, textPrice, textBatch;
 for (i = 0; i<items.length; i++){
     row = document.createElement("tr");
     product = document.createElement("td");
-    labelProduct = document.createElement("label");
+    labelProduct = document.createElement("td");
     price = document.createElement("td");
     batch = document.createElement("td");
     quantity = document.createElement("td");
@@ -137,14 +137,14 @@ for (i = 0; i<items.length; i++){
     textPrice = document.createTextNode(items[i].precio);
     textBatch = document.createTextNode(items[i].tipoEmpaque);
 
+    inputQuantity.setAttribute("type", "number"); 
+
     labelProduct.appendChild(textProduct);
     price.appendChild(textPrice);
     batch.appendChild(textBatch);
-
-    product.appendChild(labelProduct);
     quantity.appendChild(inputQuantity);
 
-    row.appendChild(product);
+    row.appendChild(labelProduct);
     row.appendChild(price);
     row.appendChild(batch);
     row.appendChild(quantity);
@@ -153,6 +153,7 @@ for (i = 0; i<items.length; i++){
     labelProduct.setAttribute("id","item-"+i);
     price.setAttribute("id", "precio-"+i);
     batch.setAttribute("id", "tipo-"+i);
+    inputQuantity.setAttribute("id", "input-"+i);
 
     labelProduct.setAttribute("class","item");
     price.setAttribute("class", "precio");
@@ -162,7 +163,7 @@ for (i = 0; i<items.length; i++){
 let dateObj= new Date();
 let mon = dateObj.getMonth()+1;
 let myDate = dateObj.getDate()+"/"+mon+"/"+dateObj.getFullYear();
-fecha = document.getElementById("fecha").innerHTML = myDate;
+fecha = document.getElementById("fecha").innerHTML = "Fecha: " + myDate;
 
 
 
