@@ -1,6 +1,7 @@
 *{
     margin:0%;
     font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
 }
 h1{
     color: orange;
@@ -36,9 +37,10 @@ td{
     border-bottom: #071d49 solid 1px;
 }
 th{
-    background-color: orange;
+    background-color: #071d49;
     height: 50px;
     padding: 0 10px;
+    color: white;
 }
 tr{
     border-bottom: #071d49 1px solid;
@@ -134,4 +136,15 @@ fieldset{
 }
 td>input:hover{
     transform: scale(1.05);
+}
+tr:hover{
+    background-color: thistle;
+}
+
+header span{
+    margin-left: 20px;
+    font-size: 20px;
+}
+#fecha{
+    color:darkgoldenrod;
 }

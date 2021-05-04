@@ -1,0 +1,38 @@
+*{
+    margin:0%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+body{
+    background-image: url("../img/fondo.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+div{
+    background-color: white;
+    width: 70%;
+    height: 60vh;
+    border-radius:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    border: black 1px solid;
+    box-shadow:  0 5px 10px 0 rgba(0,0,0,0.4), 0 7px 21px 0 rgba(0,0,0,0.3);
+    font-size: 20px;
+}
+
+h2{
+    color: #071d49;
+}
+
+p, span{
+    margin-top: 30px;
+    color: darkgoldenrod;
+    font-size: 20px;
+}

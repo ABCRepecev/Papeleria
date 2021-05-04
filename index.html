@@ -17,14 +17,15 @@
         <div>
             <div>
                 <img src="img/logo.png" alt="Logo">
-                <h1>SOLICITUD POR ÁREA DE PAPELERÍA EN ABC REPECEV</h1>
+                <h1>SOLICITUD POR ÁREA DE PAPELERÍA EN ABC</h1>
             </div>
         </div>
-        <p id="fecha"></p>
+        <span id="descripcion">Fecha máxima para enviar su solicitud de papelería es:</span>
+        <span id="fecha"></span>
     </header>
     <main>
         <div id="formulDiv">
-            <form action="https://abcrepecev.com" id="formulario" method="POST">
+            <form action="html/enviado.html" id="formulario" method="POST">
                 <fieldset id="User">
                     <legend>Usuario</legend>
                     <label for="nombreU">Nombre usuario solicitante</label>
@@ -55,13 +56,13 @@
                     <table id="tabla">
                         <tr>
                             <th id="prove">Articulo</th>
-                            <th>Precios</th>
+                            <th>Valor</th>
                             <th>Tipo de empaque</th>
                             <th>Cantidad</th>
                         </tr>
                         <script src="js/formValues.js">
                         </script>
-                        <button type="reset" class="enviar" id="enviar">Enviar</button>
+                        <button type="submit" class="enviar" id="enviar">Enviar</button>
                     </table>
                     <script>
                         var rowCount = $('#tabla tr').length;

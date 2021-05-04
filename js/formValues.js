@@ -162,8 +162,8 @@ for (i = 0; i<items.length; i++){
 
 let dateObj= new Date();
 let mon = dateObj.getMonth()+1;
-let myDate = dateObj.getDate()+"/"+mon+"/"+dateObj.getFullYear();
-fecha = document.getElementById("fecha").innerHTML = "Fecha: " + myDate;
+let myDate = "25/"+mon+"/"+dateObj.getFullYear();
+fecha = document.getElementById("fecha").innerHTML = myDate;
 
 
 
