@@ -148,3 +148,10 @@ header span{
 #fecha{
     color:darkgoldenrod;
 }
+
+fieldset a{
+    text-align: center;
+    padding-top: 15px;
+    text-decoration: none;
+    font-weight: 300;
+}

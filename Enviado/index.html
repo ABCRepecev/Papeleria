@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style-second.css">
+    <title>Enviado</title>
+</head>
+
+<body>
+    <div id="conte">
+        <h2>Su pedido fue enviado satisfactoriamente</h2>
+        <p>Fecha estimada de entrega<span id="fechaEntrega"><span id="date"></span></p>
+    </div>
+    <script>
+        let date = new Date()
+        document.getElementById("fechaEntrega").innerHTML = ":  06/"+(date.getMonth() + 2)+"/"+date.getUTCFullYear()
+    </script>
+</body>
+
+</html>
