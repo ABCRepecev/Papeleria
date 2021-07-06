@@ -624,7 +624,7 @@ for (i = 0; i < items.length; i++) {
     price.setAttribute("class", "precio");
     batch.setAttribute("class", "tipo");
     inputQuantity.setAttribute("class", "input");
-    inputQuantity.setAttribute("onKeyUp", "verification()");
+
 }
 
 let dateObj = new Date();
