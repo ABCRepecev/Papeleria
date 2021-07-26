@@ -1,44 +1,61 @@
 window.onload = function () {
-    let rowCount = $('#tabla tr').length;
-    let order = [];
-    $(function () {
-        $("#enviar").click(function () {
-            const enviarForm = window.confirm("¿Está seguro que desea enviar el formulario con la información del pedido de papelería?")
-            if (enviarForm) {
-                for (i = 0; i < rowCount - 1; i++) {
-                    if ($("#input-" + i).val() != "") {
-                        let total = parseInt($("#precio-" + i)[0].childNodes[0].nodeValue) * parseInt($("#input-" + i).val());
-                        let formData = {
-                            id: i + 1,
-                            Articulo: $("#item-" + i)[0].childNodes[0].nodeValue,
-                            Precio: parseInt($("#precio-" + i)[0].childNodes[0].nodeValue),
-                            TipoDeEmpaque: $("#tipo-" + i)[0].childNodes[0].nodeValue,
-                            CantidadPedido: parseInt($("#input-" + i).val()),
-                            Total: total,
-                            UsuarioSolicitante: $("#nombreU").val(),
-                            AreaSolicitante: $("#areaE").val(),
-                            sucursal: $("#sucursal").val(),
-                            Empresa: $("#Empresa").val(),
-                        }
-                        order.push(formData);
-                    };
-                }
-            }
-            sendData(order);
-            console.log(order);
-        });
-    });
+    getData();
+
 }
 
 
-function sendData(datos){
-    for(i=0; i < datos.length; i++){
-        $.ajax({
-            contentType: 'application/json',
-            type: "POST",
-            url: "https://prod-61.westus.logic.azure.com:443/workflows/09a0d7c340bf4ca880fad49b94efb3c7/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=okc_L4zAB8ypmJqw9bA-SVvKx8wpZh7vBo1X9QUrLXI",
-            data: JSON.stringify(datos[i]),
-        });
+function getData() {
+    let rowCount = $('#tabla tr').length;
+    let order = [];
+    $("#enviar").click(function (e) {
+        e.preventDefault();
+        const enviarForm = window.confirm("¿Está seguro que desea enviar el formulario con la información del pedido de papelería?")
+        if (enviarForm) {
+            for (i = 0; i < rowCount - 1; i++) {
+                if ($("#input-" + i).val() != "") {
+                    let total = parseInt($("#precio-" + i)[0].childNodes[0].nodeValue) * parseInt($("#input-" + i).val());
+                    let formData = {
+                        id: i + 1,
+                        Articulo: $("#item-" + i)[0].childNodes[0].nodeValue,
+                        Precio: parseInt($("#precio-" + i)[0].childNodes[0].nodeValue),
+                        TipoDeEmpaque: $("#tipo-" + i)[0].childNodes[0].nodeValue,
+                        CantidadPedido: parseInt($("#input-" + i).val()),
+                        Total: total,
+                        UsuarioSolicitante: $("#nombreU").val(),
+                        AreaSolicitante: $("#areaE").val(),
+                        sucursal: $("#sucursal").val(),
+                        Empresa: $("#Empresa").val(),
+                    }
+                    order.push(formData);
+                };
+            }
+        }
+        sendData(order);
+    });
+};
+
+
+function sendData(datos) {
+    for (i = 0; i < datos.length; i++) {
+        const url = "https://prod-61.westus.logic.azure.com:443/workflows/09a0d7c340bf4ca880fad49b94efb3c7/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=okc_L4zAB8ypmJqw9bA-SVvKx8wpZh7vBo1X9QUrLXI";
+
+        try {
+            console.log("I'm here");
+            let sender = new XMLHttpRequest();
+            console.log(JSON.stringify(datos[i]));
+            sender.open("POST", url);
+            sender.setRequestHeader("Content-Type", "application/json");
+            sender.send(JSON.stringify(datos[i]));
+            
+            console.log(sender.status);
+            setTimeout(() => {
+                console.log(sender.status)
+            }, 4000
+            );
+        } catch (err) {
+            console.log("Error" + err);
+        }
+
     }
 
     let dateObj = new Date();
