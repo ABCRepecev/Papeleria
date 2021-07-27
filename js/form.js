@@ -42,16 +42,10 @@ function sendData(datos) {
         try {
             console.log("I'm here");
             let sender = new XMLHttpRequest();
-            console.log(JSON.stringify(datos[i]));
             sender.open("POST", url);
             sender.setRequestHeader("Content-Type", "application/json");
             sender.send(JSON.stringify(datos[i]));
             
-            console.log(sender.status);
-            setTimeout(() => {
-                console.log(sender.status)
-            }, 4000
-            );
         } catch (err) {
             console.log("Error" + err);
         }
